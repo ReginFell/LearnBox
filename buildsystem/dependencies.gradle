@@ -1,0 +1,15 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    //Kotlin
+    kotlin_version = '1.2.21'
+
+    base = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+    ]
+}

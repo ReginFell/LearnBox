@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    def config = rootProject.extensions.getByName("ext")
+    compileSdkVersion config["compile_sdk"]
+
+    defaultConfig {
+        minSdkVersion config["min_sdk"]
+    }
+
+    buildTypes {
+        all {
+            def host = config["host"]
+            buildConfigField "String", "HOST", "\"${host}\""
+        }
+    }
+
+    dynamicFeatures = [":splash", ":home"]
+}
+
+dependencies {
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version"
+
+    api "com.android.support:appcompat-v7:27.1.1"
+
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    api 'ru.terrakok.cicerone:cicerone:3.0.0'
+
+    api "org.koin:koin-core:0.9.3"
+    api "org.koin:koin-android:0.9.3"
+    api "org.koin:koin-android-architecture:0.9.3"
+}

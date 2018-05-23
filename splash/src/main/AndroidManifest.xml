@@ -1,0 +1,10 @@
+<manifest xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.regin.learnbox.splash">
+
+    <dist:module
+        dist:onDemand="true"
+        dist:title="@string/title_splash">
+        <dist:fusing include="true" />
+    </dist:module>
+</manifest>
+
