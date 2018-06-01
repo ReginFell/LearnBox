@@ -2,6 +2,26 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.regin.learnbox.home">
 
+    <application>
+        <activity android:name="com.regin.learnbox.presentation.home.HomeActivity">
+
+            <intent-filter
+                android:autoVerify="true"
+                android:order="2">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:host="regin.com" />
+                <data android:pathPrefix="/home" />
+                <data android:scheme="https" />
+                <data android:scheme="http" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
     <dist:module
         dist:onDemand="true"
         dist:title="@string/title_home">

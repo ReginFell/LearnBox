@@ -8,8 +8,18 @@ allprojects {
 ext {
     //Kotlin
     kotlin_version = '1.2.21'
+    room_version = '1.1.1-rc1'
 
-    base = [
-            kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+    app = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            coroutineCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version",
+            coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version",
+    ]
+
+    persistence = [
+            kotlin      : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            room        : "android.arch.persistence.room:runtime:$room_version",
+            roomCompiler: "android.arch.persistence.room:compiler:$room_version",
+            roomRx      : "android.arch.persistence.room:rxjava2:$room_version"
     ]
 }

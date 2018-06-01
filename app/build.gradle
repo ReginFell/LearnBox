@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+def app = rootProject.ext.app
+
 android {
     def config = rootProject.extensions.getByName("ext")
     compileSdkVersion config["compile_sdk"]
@@ -16,15 +18,21 @@ android {
         }
     }
 
-    dynamicFeatures = [":splash", ":home"]
+    kotlin {
+        experimental {
+            coroutines "enable"
+        }
+    }
+
+    dynamicFeatures = [":home"]
 }
 
 dependencies {
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
+    api project(":persistence")
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version"
+    api app.kotlin
+    api app.coroutineCore
+    api app.coroutineAndroid
 
     api "com.android.support:appcompat-v7:27.1.1"
 

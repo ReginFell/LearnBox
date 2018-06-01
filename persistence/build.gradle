@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+def persistence = rootProject.ext.persistence
+
+android {
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config["compile_sdk"]
+}
+
+dependencies {
+    implementation app.kotlin
+
+    api persistence.room
+    kapt persistence.roomCompiler
+    api persistence.roomRx
+}
+
+
