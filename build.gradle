@@ -1,13 +1,13 @@
 apply from: 'buildsystem/dependencies.gradle'
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.50-eap-62'
     ext.kotlinx_version = '0.22.1'
 
-    ext.gradle_tools = '3.2.0-alpha15'
+    ext.gradle_tools = '3.2.0-alpha17'
 
-    ext.compile_sdk = 27
-    ext.target_sdk = 27
+    ext.compile_sdk = 28
+    ext.target_sdk = 28
     ext.min_sdk = 24
 
     ext.application_id = 'com.regin.learnbox'
@@ -19,6 +19,8 @@ buildscript {
     repositories {
         google()
         jcenter()
+
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradle_tools"
@@ -30,5 +32,6 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
     }
 }

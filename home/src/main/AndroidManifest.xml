@@ -23,7 +23,7 @@
     </application>
 
     <dist:module
-        dist:onDemand="true"
+        dist:onDemand="false"
         dist:title="@string/title_home">
         <dist:fusing include="true" />
     </dist:module>
