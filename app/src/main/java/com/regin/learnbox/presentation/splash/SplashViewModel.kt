@@ -12,7 +12,7 @@ class SplashViewModel(private val router: Router,
     private var splashJob: Job? = null
 
     companion object {
-        private const val SPLASH_DURATION = 2000L
+        private const val SPLASH_DURATION = 2000
     }
 
     init {

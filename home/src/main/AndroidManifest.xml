@@ -3,7 +3,8 @@
     package="com.regin.learnbox.home">
 
     <application>
-        <activity android:name="com.regin.learnbox.presentation.home.HomeActivity">
+        <activity
+            android:name="com.regin.learnbox.presentation.home.HomeActivity">
 
             <intent-filter
                 android:autoVerify="true"

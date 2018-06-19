@@ -1,8 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
-def app = rootProject.ext.app
-
 android {
     def config = rootProject.extensions.getByName("ext")
     compileSdkVersion config["compile_sdk"]
@@ -30,18 +28,21 @@ android {
 dependencies {
     api project(":persistence")
 
-    api app.kotlin
-    api app.coroutineCore
-    api app.coroutineAndroid
+    api core.kotlin
+    api core.ktx
 
-    api "com.android.support:appcompat-v7:28.0.0-alpha3"
-    api "com.android.support:design:28.0.0-alpha3"
+    api core.coroutineCore
+    api core.coroutineAndroid
 
-    api 'com.android.support.constraint:constraint-layout:1.1.1'
+    api core.appCompat
+    api core.designCompat
 
-    api 'ru.terrakok.cicerone:cicerone:3.0.0'
+    api core.constraintLayout
 
-    api "org.koin:koin-core:0.9.3"
-    api "org.koin:koin-android:0.9.3"
-    api "org.koin:koin-android-architecture:0.9.3"
+    api core.cicerone
+
+    api core.koinCore
+    api core.koinAndroid
+    api core.koinArchitecture
+
 }

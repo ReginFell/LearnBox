@@ -9,11 +9,26 @@ ext {
     //Kotlin
     kotlin_version = '1.2.21'
     room_version = '1.1.1-rc1'
+    navigation_version = '1.0.0-alpha02'
+    navigation_ktx_version = '1.0.0-alpha02'
+    support_version = '28.0.0-alpha3'
+    constraint_version = '1.1.2'
+    cicerone_version = '3.0.0'
+    koin_version = '0.9.3'
+    ktx_version = '0.3'
 
-    app = [
+    core = [
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             coroutineCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version",
             coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version",
+            appCompat       : "com.android.support:appcompat-v7:$support_version",
+            designCompat    : "com.android.support:design:$support_version",
+            constraintLayout: "com.android.support.constraint:constraint-layout:$constraint_version",
+            cicerone        : "ru.terrakok.cicerone:cicerone:$cicerone_version",
+            koinCore        : "org.koin:koin-core:$koin_version",
+            koinAndroid     : "org.koin:koin-android:$koin_version",
+            koinArchitecture: "org.koin:koin-android-architecture:$koin_version",
+            ktx             : "androidx.core:core-ktx:$ktx_version"
     ]
 
     persistence = [
@@ -21,5 +36,10 @@ ext {
             room        : "android.arch.persistence.room:runtime:$room_version",
             roomCompiler: "android.arch.persistence.room:compiler:$room_version",
             roomRx      : "android.arch.persistence.room:rxjava2:$room_version"
+    ]
+
+    home = [
+            navigationKtx: "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
+            navigation   : "android.arch.navigation:navigation-ui-ktx:$navigation_version"
     ]
 }
