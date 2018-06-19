@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:host="regin.com" />
+                <data android:host="todo-deep.herokuapp.com" />
                 <data android:pathPrefix="/home" />
                 <data android:scheme="https" />
                 <data android:scheme="http" />

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:host="regin.com" />
+                <data android:host="todo-deep.herokuapp.com" />
                 <data android:pathPrefix="/splash" />
                 <data android:scheme="https" />
                 <data android:scheme="http" />
@@ -27,7 +27,7 @@
 
             <meta-data
                 android:name="default-url"
-                android:value="regin.com/splash" />
+                android:value="todo-deep.herokuapp.com/splash" />
         </activity>
     </application>
 
