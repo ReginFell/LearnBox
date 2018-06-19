@@ -22,9 +22,7 @@ android {
         }
     }
 
-    dynamicFeatures = [":home", ":splash"]
-
-
+    dynamicFeatures = [":home"]
 }
 
 dependencies {
