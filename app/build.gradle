@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     def config = rootProject.extensions.getByName("ext")
@@ -22,7 +23,7 @@ android {
         }
     }
 
-    dynamicFeatures = [":home"]
+    dynamicFeatures = [":home", ":task"]
 }
 
 dependencies {
@@ -44,5 +45,8 @@ dependencies {
     api core.koinCore
     api core.koinAndroid
     api core.koinArchitecture
+
+    api core.navigation
+    api core.navigationKtx
 
 }

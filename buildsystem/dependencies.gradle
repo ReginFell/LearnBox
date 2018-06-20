@@ -28,7 +28,9 @@ ext {
             koinCore        : "org.koin:koin-core:$koin_version",
             koinAndroid     : "org.koin:koin-android:$koin_version",
             koinArchitecture: "org.koin:koin-android-architecture:$koin_version",
-            ktx             : "androidx.core:core-ktx:$ktx_version"
+            ktx             : "androidx.core:core-ktx:$ktx_version",
+            navigationKtx: "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
+            navigation   : "android.arch.navigation:navigation-ui-ktx:$navigation_version"
     ]
 
     persistence = [
@@ -39,7 +41,6 @@ ext {
     ]
 
     home = [
-            navigationKtx: "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
-            navigation   : "android.arch.navigation:navigation-ui-ktx:$navigation_version"
+
     ]
 }

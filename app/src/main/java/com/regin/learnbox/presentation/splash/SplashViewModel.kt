@@ -1,6 +1,6 @@
 package com.regin.learnbox.presentation.splash
 
-import com.regin.learnbox.presentation.HOME_SCREEN
+import com.regin.learnbox.presentation.navigation.HOME_SCREEN
 import com.regin.learnbox.presentation.base.BaseViewModel
 import kotlinx.coroutines.experimental.*
 import kotlinx.coroutines.experimental.android.UI
@@ -12,7 +12,7 @@ class SplashViewModel(private val router: Router,
     private var splashJob: Job? = null
 
     companion object {
-        private const val SPLASH_DURATION = 2000
+        private const val SPLASH_DURATION = 1
     }
 
     init {

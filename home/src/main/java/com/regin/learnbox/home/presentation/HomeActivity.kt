@@ -1,6 +1,7 @@
-package com.regin.learnbox.presentation.home
+package com.regin.learnbox.home.presentation
 
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -11,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.bottom_navigation as bottomNavigation
 
 class HomeActivity : BaseActivity() {
+
+    override val containerView: View by lazy { container }
 
     private val navigationController: NavController by lazy {
         findNavController(R.id.navigation_container)

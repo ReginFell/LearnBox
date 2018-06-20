@@ -7,9 +7,8 @@
 
     <fragment
         android:id="@+id/taskFragment"
-        android:name="com.regin.learnbox.presentation.task.TaskFragment"
-        android:label="@string/home_title_task"
-        tools:layout="@layout/fragment_task" />
+        android:name="com.regin.learnbox.task.presentation.TaskFragment"
+        android:label="@string/home_title_task" />
 
     <fragment
         android:id="@+id/profileFragment"

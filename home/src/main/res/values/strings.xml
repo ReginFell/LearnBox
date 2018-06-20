@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="home_title_task">Task</string>
-    <string name="home_title_profile">Profile</string>
-
-    <string name="task_empty_description">You don\'t have any task</string>
-    <string name="task_empty_create_new">Create a new one</string>
-</resources>

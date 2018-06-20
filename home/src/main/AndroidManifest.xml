@@ -3,12 +3,8 @@
     package="com.regin.learnbox.home">
 
     <application>
-        <activity
-            android:name="com.regin.learnbox.presentation.home.HomeActivity">
-
-            <intent-filter
-                android:autoVerify="true"
-                android:order="2">
+        <activity android:name="com.regin.learnbox.home.presentation.HomeActivity">
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />

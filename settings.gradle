@@ -1,1 +1,1 @@
-include ':app', ':home', ':persistence'
+include ':app', ':home', ':persistence', ':task', ':networking'
