@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation project(":networking")
+
     api project(":persistence")
 
     api core.kotlin

@@ -1,6 +1,7 @@
 package com.regin.learnbox.task.presentation
 
 import android.arch.lifecycle.MutableLiveData
+import com.regin.learnbox.models.core.Error
 import com.regin.learnbox.models.task.Task
 import com.regin.learnbox.presentation.base.BaseViewModel
 import kotlinx.coroutines.experimental.CoroutineDispatcher
@@ -14,7 +15,7 @@ class TaskViewModel(private val dispatcher: CoroutineDispatcher = UI) : BaseView
         taskLive.value = listOf()
     }
 
-    public fun dod() {
-        errorLiveData.value = Throwable("12345")
+    fun dod() {
+        errorLiveData.value = Error(Throwable("2321")) { dod() }
     }
 }

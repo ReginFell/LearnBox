@@ -4,9 +4,11 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.regin.learnbox.Application
+import com.regin.learnbox.R
+import com.regin.learnbox.models.core.Error
 import com.regin.learnbox.presentation.navigation.navigateTo
+import com.regin.learnbox.presentation.view.MaterialSnackbar
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.commands.Command
 import ru.terrakok.cicerone.commands.Forward
@@ -25,10 +27,14 @@ abstract class BaseActivity : AppCompatActivity() {
         Application.getNavigatorHolder().removeNavigator()
     }
 
-    fun handleError(throwable: Throwable?) {
-        throwable?.also {
-            Snackbar.make(containerView, "test", Toast.LENGTH_LONG).show() //TODO
-        }
+    fun handleError(error: Error) {
+        MaterialSnackbar.make(containerView, error.throwable.message.toString(), Snackbar.LENGTH_LONG)
+                .also {
+                    error.retry?.run {
+                        it.setAction(R.string.retry) { this() }
+                    }
+                }
+                .show()
     }
 
     private val navigator = object : Navigator {

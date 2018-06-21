@@ -3,4 +3,7 @@
     <dimen name="half_grid">8dp</dimen>
     <dimen name="grid">16dp</dimen>
     <dimen name="splash_image_size">128dp</dimen>
+
+    <dimen name="material_snackbar_radius">8dp</dimen>
+
 </resources>
