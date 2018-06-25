@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface Api {
 
     @GET("/")
-   suspend fun getTasks(): Deferred<List<Task>>
+    fun getTasks(): Deferred<List<Task>>
 
 }

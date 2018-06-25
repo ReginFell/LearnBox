@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import com.regin.learnbox.Application
 import com.regin.learnbox.R
-import com.regin.learnbox.models.core.Error
+import com.regin.learnbox.models.core.LocalError
 import com.regin.learnbox.presentation.navigation.navigateTo
 import com.regin.learnbox.presentation.view.MaterialSnackbar
 import ru.terrakok.cicerone.Navigator
@@ -27,10 +27,10 @@ abstract class BaseActivity : AppCompatActivity() {
         Application.getNavigatorHolder().removeNavigator()
     }
 
-    fun handleError(error: Error) {
-        MaterialSnackbar.make(containerView, error.throwable.message.toString(), Snackbar.LENGTH_LONG)
+    fun handleError(localError: LocalError) {
+        MaterialSnackbar.make(containerView, localError.throwable.message.toString(), Snackbar.LENGTH_LONG)
                 .also {
-                    error.retry?.run {
+                    localError.retry?.run {
                         it.setAction(R.string.retry) { this() }
                     }
                 }
