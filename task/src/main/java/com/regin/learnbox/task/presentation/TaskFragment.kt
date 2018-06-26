@@ -7,19 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import com.regin.learnbox.presentation.base.BaseFragment
 import com.regin.learnbox.task.R
-import org.koin.android.ext.android.inject
+import org.koin.android.architecture.ext.getViewModel
 import org.koin.standalone.StandAloneContext.loadKoinModules
 import kotlinx.android.synthetic.main.fragment_task.empty_button as emptyButton
 import kotlinx.android.synthetic.main.fragment_task.empty_state_group as emptyGroup
 
 class TaskFragment : BaseFragment<TaskViewModel>() {
 
-    override val viewModel: TaskViewModel by inject()
+    override lateinit var viewModel: TaskViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         loadKoinModules(taskModule)
+
+        viewModel = getViewModel()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,7 +39,5 @@ class TaskFragment : BaseFragment<TaskViewModel>() {
                 }
             }
         })
-
-        emptyButton.setOnClickListener({ viewModel.dod() })
     }
 }

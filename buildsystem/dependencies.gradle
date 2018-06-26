@@ -19,32 +19,35 @@ ext {
     gson_version = "2.3.0"
 
     core = [
-            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            coroutineCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version",
-            coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version",
-            appCompat       : "com.android.support:appcompat-v7:$support_version",
-            designCompat    : "com.android.support:design:$support_version",
-            constraintLayout: "com.android.support.constraint:constraint-layout:$constraint_version",
-            cicerone        : "ru.terrakok.cicerone:cicerone:$cicerone_version",
-            koinCore        : "org.koin:koin-core:$koin_version",
-            koinAndroid     : "org.koin:koin-android:$koin_version",
-            koinArchitecture: "org.koin:koin-android-architecture:$koin_version",
-            ktx             : "androidx.core:core-ktx:$ktx_version",
-            navigationKtx   : "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
-            navigation      : "android.arch.navigation:navigation-ui-ktx:$navigation_version"
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            coroutineCore     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_version",
+            coroutineAndroid  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_version",
+            appCompat         : "com.android.support:appcompat-v7:$support_version",
+            designCompat      : "com.android.support:design:$support_version",
+            constraintLayout  : "com.android.support.constraint:constraint-layout:$constraint_version",
+            cicerone          : "ru.terrakok.cicerone:cicerone:$cicerone_version",
+            koinCore          : "org.koin:koin-core:$koin_version",
+            koinAndroid       : "org.koin:koin-android:$koin_version",
+            koinArchitecture  : "org.koin:koin-android-architecture:$koin_version",
+            ktx               : "androidx.core:core-ktx:$ktx_version",
+            navigationKtx     : "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
+            navigation        : "android.arch.navigation:navigation-ui-ktx:$navigation_version",
+            coroutinesReactive: "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:$kotlinx_version", //TODO remove when room supports coroutines
     ]
 
     persistence = [
             kotlin      : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             room        : "android.arch.persistence.room:runtime:$room_version",
             roomCompiler: "android.arch.persistence.room:compiler:$room_version",
-            roomRx      : "android.arch.persistence.room:rxjava2:$room_version"
+            roomRx      : "android.arch.persistence.room:rxjava2:$room_version",
     ]
 
     networking = [
             retrofit                 : "com.squareup.retrofit2:retrofit:$retrofit_version",
             retrofitCoroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0",
             okHttp                   : "com.squareup.okhttp3:okhttp:$okhttp_version",
+            okHttpLoggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
             gsonConverterFactory     : "com.squareup.retrofit2:converter-gson:$gson_version"
     ]
 }
+

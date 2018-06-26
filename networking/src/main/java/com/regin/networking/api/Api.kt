@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface Api {
 
-    @GET("/")
+    @GET("/tasks.json")
     fun getTasks(): Deferred<List<Task>>
 
 }

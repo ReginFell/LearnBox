@@ -2,6 +2,8 @@ package com.regin.learnbox
 
 import android.app.Application
 import com.regin.learnbox.di.appModule
+import com.regin.learnbox.di.dataModule
+import com.regin.learnbox.persistence.di.databaseModule
 import com.regin.networking.di.networkModule
 import org.koin.android.ext.android.startKoin
 import ru.terrakok.cicerone.Cicerone
@@ -25,6 +27,7 @@ class Application : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        startKoin(this, listOf(appModule, networkModule), mapOf(Pair("BASE_URL", BuildConfig.API)))
+        startKoin(this, listOf(appModule, dataModule, networkModule, databaseModule),
+                mapOf(Pair("base_url", BuildConfig.API), Pair("context", this)))
     }
 }

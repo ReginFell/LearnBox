@@ -15,7 +15,7 @@ buildscript {
     ext.version_code = 1
 
     ext.host = "https://todo-deep.herokuapp.com"
-    ext.api = "https://todo-deep.herokuapp.com"
+    ext.api = "https://notification-todo.firebaseio.com"
 
     repositories {
         google()

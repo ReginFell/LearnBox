@@ -28,13 +28,14 @@ android {
 }
 
 dependencies {
-    api project(":networking")
-    api project(":persistence")
+    implementation project(":networking")
+    implementation project(":persistence")
 
     api core.kotlin
     api core.ktx
 
     api core.coroutineCore
+    api core.coroutinesReactive
     api core.coroutineAndroid
 
     api core.appCompat
