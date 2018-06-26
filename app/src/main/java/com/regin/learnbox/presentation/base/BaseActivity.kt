@@ -28,6 +28,8 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun handleError(localError: LocalError) {
+        localError.throwable.printStackTrace()
+
         MaterialSnackbar.make(containerView, localError.throwable.message.toString(), Snackbar.LENGTH_LONG)
                 .also {
                     localError.retry?.run {

@@ -16,16 +16,19 @@ class TaskViewModel(private val dispatcher: CoroutineDispatcher = UI,
     val taskLive: MutableLiveData<List<Task>> = MutableLiveData()
 
     init {
-        dod()
+        init()
     }
 
-    private fun dod() {
+    private fun init() {
         launch {
             try {
-                val tasks = taskRepository.getTasks().await()
+                val tasks = taskRepository.listenTasks()
+                withContext(dispatcher) {
+                    taskLive.value = tasks
+                }
             } catch (e: Exception) {
                 withContext(dispatcher) {
-                    localErrorLiveData.value = LocalError(e) { dod() }
+                    localErrorLiveData.value = LocalError(e) { init() }
                 }
             }
         }

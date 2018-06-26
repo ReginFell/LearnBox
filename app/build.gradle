@@ -35,7 +35,6 @@ dependencies {
     api core.ktx
 
     api core.coroutineCore
-    api core.coroutinesReactive
     api core.coroutineAndroid
 
     api core.appCompat

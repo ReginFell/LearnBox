@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.regin.learnbox.presentation.base.BaseFragment
 import com.regin.learnbox.task.R
+import com.regin.learnbox.task.presentation.adapter.TaskAdapter
+import kotlinx.android.synthetic.main.fragment_task.*
+import kotlinx.android.synthetic.main.fragment_task.empty_state as emptyState
 import org.koin.android.architecture.ext.getViewModel
 import org.koin.standalone.StandAloneContext.loadKoinModules
-import kotlinx.android.synthetic.main.fragment_task.empty_button as emptyButton
-import kotlinx.android.synthetic.main.fragment_task.empty_state_group as emptyGroup
 
 class TaskFragment : BaseFragment<TaskViewModel>() {
 
     override lateinit var viewModel: TaskViewModel
+
+    private val taskAdapter: TaskAdapter = TaskAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,13 +32,15 @@ class TaskFragment : BaseFragment<TaskViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tasks.adapter = taskAdapter
 
         viewModel.taskLive.observe(this, Observer {
             it?.also {
                 if (it.isEmpty()) {
-                    emptyGroup.visibility = View.GONE
+                    emptyState.visibility = View.VISIBLE
                 } else {
-                    emptyGroup.visibility = View.VISIBLE
+                    taskAdapter.submitList(it)
+                    emptyState.visibility = View.GONE
                 }
             }
         })

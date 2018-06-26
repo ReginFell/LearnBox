@@ -1,3 +1,3 @@
 package com.regin.networking.models
 
-data class Task(private val id: String, private val name: String)
+data class Task(val id: String, val name: String)

@@ -10,7 +10,7 @@ ext {
     navigation_version = '1.0.0-alpha02'
     navigation_ktx_version = '1.0.0-alpha02'
     support_version = '28.0.0-alpha3'
-    constraint_version = '1.1.2'
+    constraint_version = '1.1.1'
     cicerone_version = '3.0.0'
     ktx_version = '0.3'
     koin_version = '0.9.3'
@@ -32,7 +32,6 @@ ext {
             ktx               : "androidx.core:core-ktx:$ktx_version",
             navigationKtx     : "android.arch.navigation:navigation-fragment-ktx:$navigation_ktx_version",
             navigation        : "android.arch.navigation:navigation-ui-ktx:$navigation_version",
-            coroutinesReactive: "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:$kotlinx_version", //TODO remove when room supports coroutines
     ]
 
     persistence = [

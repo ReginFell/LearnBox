@@ -1,3 +1,3 @@
 package com.regin.learnbox.models.task
 
-data class Task(private val id: String)
+data class Task(val id: String, val name: String)
