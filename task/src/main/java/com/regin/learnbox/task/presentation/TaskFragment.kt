@@ -5,13 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.regin.learnbox.models.core.State
+import com.regin.learnbox.models.task.Task
 import com.regin.learnbox.presentation.base.BaseFragment
 import com.regin.learnbox.task.R
 import com.regin.learnbox.task.presentation.adapter.TaskAdapter
 import kotlinx.android.synthetic.main.fragment_task.*
-import kotlinx.android.synthetic.main.fragment_task.empty_state as emptyState
 import org.koin.android.architecture.ext.getViewModel
 import org.koin.standalone.StandAloneContext.loadKoinModules
+import kotlinx.android.synthetic.main.fragment_task.empty_state as emptyState
 
 class TaskFragment : BaseFragment<TaskViewModel>() {
 
@@ -34,13 +36,20 @@ class TaskFragment : BaseFragment<TaskViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         tasks.adapter = taskAdapter
 
-        viewModel.taskLive.observe(this, Observer {
-            it?.also {
-                if (it.isEmpty()) {
-                    emptyState.visibility = View.VISIBLE
-                } else {
-                    taskAdapter.submitList(it)
-                    emptyState.visibility = View.GONE
+        viewModel.taskState.observe(this, Observer {
+            it?.let {
+                emptyState.visibility = View.GONE
+
+                when (it) {
+                    is State.Loading -> {
+                        //TODO add implementation
+                    }
+                    is State.Content<*> -> {
+                        taskAdapter.submitList(it.content as List<Task>) //TODO change from cast
+                    }
+                    is State.Empty -> {
+                        emptyState.visibility = View.VISIBLE
+                    }
                 }
             }
         })

@@ -3,7 +3,7 @@ package com.regin.learnbox.task.presentation
 import android.arch.lifecycle.MutableLiveData
 import com.regin.learnbox.data.TaskRepository
 import com.regin.learnbox.models.core.LocalError
-import com.regin.learnbox.models.task.Task
+import com.regin.learnbox.models.core.State
 import com.regin.learnbox.presentation.base.BaseViewModel
 import kotlinx.coroutines.experimental.CoroutineDispatcher
 import kotlinx.coroutines.experimental.android.UI
@@ -13,18 +13,24 @@ import kotlinx.coroutines.experimental.withContext
 class TaskViewModel(private val dispatcher: CoroutineDispatcher = UI,
                     private val taskRepository: TaskRepository) : BaseViewModel() {
 
-    val taskLive: MutableLiveData<List<Task>> = MutableLiveData()
+    val taskState: MutableLiveData<State> = MutableLiveData()
 
     init {
         init()
     }
 
     private fun init() {
+        taskState.value = State.Loading()
+
         launch {
             try {
                 val tasks = taskRepository.listenTasks()
                 withContext(dispatcher) {
-                    taskLive.value = tasks
+                    if (tasks.isEmpty()) {
+                        taskState.value = State.Empty()
+                    } else {
+                        taskState.value = State.Content(tasks)
+                    }
                 }
             } catch (e: Exception) {
                 withContext(dispatcher) {
